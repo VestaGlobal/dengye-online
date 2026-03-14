@@ -167,8 +167,8 @@ a:hover {
     /* 隐藏滚动条 */
     scrollbar-width: none;
     -ms-overflow-style: none;
-    justify-content: center; /* 居中显示，如果卡片少于一行 */
-    flex-wrap: wrap; /* 允许换行，适应桌面端 */
+    justify-content: flex-start; /* 左对齐，配合padding实现滚动 */
+    flex-wrap: nowrap; /* 禁止换行，强制横向滚动 */
 }
 
 .product-scroll-container::-webkit-scrollbar {
