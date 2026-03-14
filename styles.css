@@ -1,13 +1,14 @@
 /* Reset & Base Variables */
 :root {
-    --bg-color: #fbfbfd;
+    --bg-color: #f5f5f7;
     --text-primary: #1d1d1f;
     --text-secondary: #86868b;
     --accent-color: #0066cc;
     --card-bg: #ffffff;
     --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --section-spacing: 80px;
+    --section-spacing: 60px;
     --container-width: 980px;
+    --footer-bg: #f5f5f7;
 }
 
 * {
@@ -29,11 +30,12 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-    transition: opacity 0.2s;
+    transition: color 0.2s;
 }
 
 a:hover {
-    opacity: 0.8;
+    color: #333;
+    text-decoration: underline;
 }
 
 .container {
@@ -42,15 +44,20 @@ a:hover {
     padding: 0 20px;
 }
 
+/* 缩小版的容器，用于企业信息 */
+.small-container {
+    max-width: 800px;
+}
+
 /* Navigation */
 .global-nav {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(251, 251, 253, 0.8);
     backdrop-filter: saturate(180%) blur(20px);
     height: 44px;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .nav-content {
@@ -74,6 +81,7 @@ a:hover {
     color: var(--text-primary);
     margin-left: 24px;
     opacity: 0.8;
+    text-decoration: none !important;
 }
 
 .nav-links a:hover {
@@ -82,17 +90,17 @@ a:hover {
 
 /* Hero Section */
 .hero-section {
-    padding: 120px 0 80px;
+    padding: 100px 0 60px;
     text-align: center;
-    background-color: #fff;
+    background-color: var(--bg-color);
 }
 
 .hero-title {
-    font-size: 56px;
-    line-height: 1.07143;
+    font-size: 48px;
+    line-height: 1.08349;
     font-weight: 600;
-    letter-spacing: -0.005em;
-    margin-bottom: 16px;
+    letter-spacing: -0.003em;
+    margin-bottom: 12px;
     color: #1d1d1f;
 }
 
@@ -104,33 +112,86 @@ a:hover {
     color: var(--text-secondary);
 }
 
-/* Section Common */
-.section-title {
+/* Product Section - App介绍 */
+.product-section {
+    padding: 0 0 80px;
+    text-align: center;
+    background-color: #fff; /* 产品展示区用白色背景突显 */
+    padding-top: 80px;
+}
+
+.product-title {
     font-size: 40px;
     line-height: 1.1;
     font-weight: 600;
-    letter-spacing: 0em;
+    margin-bottom: 12px;
+}
+
+.product-desc {
+    font-size: 21px;
+    line-height: 1.38105;
+    font-weight: 400;
+    color: var(--text-secondary);
     margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-image-wrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* 柔和的阴影提升质感 */
+    max-height: 600px; /* 限制高度防止过大 */
+    object-fit: contain;
+}
+
+/* Info Section - 企业信息 */
+.info-section {
+    padding: var(--section-spacing) 0;
+    background-color: var(--bg-color); /* 恢复灰色背景 */
+}
+
+.section-title {
+    font-size: 32px;
+    line-height: 1.125;
+    font-weight: 600;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.info-section, .contact-section {
-    padding: var(--section-spacing) 0;
+.small-title {
+    font-size: 28px; /* 缩小标题 */
+    margin-bottom: 24px;
 }
 
-/* Info Card */
 .info-card {
     background: var(--card-bg);
-    border-radius: 18px;
-    padding: 40px;
-    box-shadow: 2px 4px 12px rgba(0,0,0,0.02);
-    border: 1px solid rgba(0,0,0,0.02);
+    border-radius: 12px; /* 减小圆角 */
+    padding: 30px; /* 减小内边距 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.small-card {
+    padding: 24px 32px; /* 更紧凑的内边距 */
 }
 
 .info-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 24px; /* 减小间距 */
+}
+
+.compact-list {
+    gap: 20px;
+    font-size: 13px; /* 整体字体稍微缩小 */
 }
 
 .info-item {
@@ -143,97 +204,123 @@ a:hover {
 }
 
 .info-label {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-secondary);
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .info-value {
-    font-size: 17px;
+    font-size: 14px; /* 缩小字号 */
     color: var(--text-primary);
     font-weight: 400;
 }
 
-/* Contact Section */
-.contact-section {
-    background-color: #f5f5f7;
+.text-justify {
+    text-align: justify;
+    line-height: 1.6;
 }
 
-.contact-card {
-    background: var(--card-bg);
-    border-radius: 18px;
-    padding: 40px;
-    box-shadow: 2px 4px 12px rgba(0,0,0,0.02);
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    text-align: center;
-}
-
-.contact-item {
-    padding: 20px;
-}
-
-.contact-label {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-bottom: 10px;
-}
-
-.contact-value {
-    font-size: 21px;
-    color: var(--accent-color);
-    font-weight: 600;
-    display: block;
-}
-
-.contact-value:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
+/* Footer & Contact - Apple Footer Style */
 .global-footer {
-    background-color: #f5f5f7;
-    padding: 30px 0;
+    background-color: var(--footer-bg);
+    padding: 40px 0 20px;
     font-size: 12px;
     color: var(--text-secondary);
     border-top: 1px solid #d2d2d7;
 }
 
+.footer-contact-section {
+    margin-bottom: 20px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.footer-label {
+    margin-right: 8px;
+}
+
+.footer-list a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.footer-list a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: #d2d2d7;
+    margin: 20px 0;
+}
+
 .footer-copyright {
-    text-align: center;
+    text-align: left;
+    color: #86868b;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .hero-subtitle {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .product-title {
+        font-size: 32px;
+    }
+
+    .product-desc {
+        font-size: 17px;
+        padding: 0 20px;
     }
     
     .info-list {
         grid-template-columns: 1fr;
-    }
-    
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 16px;
     }
     
     .section-title {
-        font-size: 32px;
+        font-size: 24px;
     }
     
-    .info-card, .contact-card {
-        padding: 24px;
+    .info-card {
+        padding: 20px;
+    }
+
+    .footer-copyright {
+        text-align: center;
     }
 }
