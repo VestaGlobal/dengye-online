@@ -86,18 +86,15 @@ a:hover {
 
 .brand-slogan {
     font-size: 18px; /* 与灯野一致 */
-    color: var(--text-secondary); /* 颜色较浅 */
+    color: #707071; /* 更浅的灰色，原为 #86868b */
     opacity: 0;
     transform: translateY(5px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: none; /* 避免遮挡点击 */
 }
 
-/* 交互：点击或悬停导航栏时显示 */
-.global-nav:hover .brand-slogan,
-.brand:hover .brand-slogan,
-.brand:focus .brand-slogan,
-.brand:active .brand-slogan {
+/* 交互：仅当拥有 .show 类时显示（通过 JS 控制点击） */
+.brand.show-slogan .brand-slogan {
     opacity: 1;
     transform: translateY(0);
 }
