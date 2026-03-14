@@ -114,44 +114,111 @@ a:hover {
 
 /* Product Section - App介绍 */
 .product-section {
-    padding: 0 0 80px;
+    padding: 80px 0;
     text-align: center;
-    background-color: #fff; /* 产品展示区用白色背景突显 */
-    padding-top: 80px;
+    background-color: #fff;
+    overflow: hidden; /* 防止横向滚动条 */
 }
 
 .product-title {
-    font-size: 40px;
-    line-height: 1.1;
+    font-size: 56px;
+    line-height: 1.07143;
     font-weight: 600;
-    margin-bottom: 12px;
+    letter-spacing: -0.005em;
+    margin-bottom: 20px;
 }
 
 .product-desc {
-    font-size: 21px;
-    line-height: 1.38105;
+    font-size: 24px;
+    line-height: 1.16667;
     font-weight: 400;
+    letter-spacing: 0.009em;
     color: var(--text-secondary);
-    margin-bottom: 40px;
-    max-width: 600px;
+    margin-bottom: 60px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.product-image-wrapper {
-    margin-top: 20px;
+/* 横向滚动容器 */
+.product-scroll-container {
     display: flex;
-    justify-content: center;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px 20px 40px; /* 底部padding留给滚动条或阴影 */
+    margin: 0 auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* 隐藏滚动条 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: center; /* 居中显示，如果卡片少于一行 */
+    flex-wrap: wrap; /* 允许换行，适应桌面端 */
 }
 
-.product-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* 柔和的阴影提升质感 */
-    max-height: 600px; /* 限制高度防止过大 */
-    object-fit: contain;
+.product-scroll-container::-webkit-scrollbar {
+    display: none;
 }
+
+/* 产品卡片样式 */
+.product-card {
+    background-color: #f5f5f7; /* 浅灰色背景 */
+    border-radius: 28px;
+    overflow: hidden;
+    flex: 0 0 400px; /* 固定宽度 */
+    height: 600px; /* 固定高度 */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+}
+
+.card-text {
+    padding: 40px 40px 0;
+    text-align: left;
+    z-index: 2;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-size: 32px;
+    line-height: 1.125;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.card-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* 图片底部对齐 */
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+.card-image {
+    max-width: 85%; /* 限制图片宽度 */
+    height: auto;
+    max-height: 90%; /* 限制图片高度 */
+    object-fit: contain;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.1); /* 添加阴影提升层次感 */
+    transform: translateY(20px); /* 稍微下移，营造沉浸感 */
+}
+
 
 /* Info Section - 企业信息 */
 .info-section {
@@ -305,6 +372,20 @@ a:hover {
     .product-desc {
         font-size: 17px;
         padding: 0 20px;
+        margin-bottom: 40px;
+    }
+
+    /* 移动端横向滚动优化 */
+    .product-scroll-container {
+        justify-content: flex-start; /* 移动端靠左开始，方便滚动 */
+        flex-wrap: nowrap; /* 强制不换行，实现横向滚动 */
+        padding-left: 20px; /* 左侧留白 */
+        padding-right: 20px; /* 右侧留白 */
+    }
+
+    .product-card {
+        flex: 0 0 300px; /* 移动端卡片宽度 */
+        height: 500px;
     }
     
     .info-list {
