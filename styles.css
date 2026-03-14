@@ -1,0 +1,239 @@
+/* Reset & Base Variables */
+:root {
+    --bg-color: #fbfbfd;
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --accent-color: #0066cc;
+    --card-bg: #ffffff;
+    --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --section-spacing: 80px;
+    --container-width: 980px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.global-nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    height: 44px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-content {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text-primary);
+}
+
+.nav-links a {
+    font-size: 12px;
+    color: var(--text-primary);
+    margin-left: 24px;
+    opacity: 0.8;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 120px 0 80px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.hero-title {
+    font-size: 56px;
+    line-height: 1.07143;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin-bottom: 16px;
+    color: #1d1d1f;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    line-height: 1.16667;
+    font-weight: 400;
+    letter-spacing: 0.009em;
+    color: var(--text-secondary);
+}
+
+/* Section Common */
+.section-title {
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: 0em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.info-section, .contact-section {
+    padding: var(--section-spacing) 0;
+}
+
+/* Info Card */
+.info-card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.info-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.info-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.info-value {
+    font-size: 17px;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #f5f5f7;
+}
+
+.contact-card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.02);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.contact-item {
+    padding: 20px;
+}
+
+.contact-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.contact-value {
+    font-size: 21px;
+    color: var(--accent-color);
+    font-weight: 600;
+    display: block;
+}
+
+.contact-value:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.global-footer {
+    background-color: #f5f5f7;
+    padding: 30px 0;
+    font-size: 12px;
+    color: var(--text-secondary);
+    border-top: 1px solid #d2d2d7;
+}
+
+.footer-copyright {
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 20px;
+    }
+    
+    .info-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .info-card, .contact-card {
+        padding: 24px;
+    }
+}
