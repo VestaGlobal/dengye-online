@@ -90,7 +90,7 @@ a:hover {
 
 /* Hero Section */
 .hero-section {
-    padding: 20px 0 20px;
+    padding: 40px 0 30px; /* 再次减半，更紧凑 */
     text-align: center;
     background-color: var(--bg-color);
 }
