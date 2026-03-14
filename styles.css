@@ -86,7 +86,7 @@ a:hover {
 
 .brand-slogan {
     font-size: 18px; /* 与灯野一致 */
-    color: #ff9a01; /* 更浅的灰色，原为 #86868b */
+    color: #ff4000; /* 更浅的灰色，原为 #86868b */
     opacity: 0;
     transform: translateY(5px);
     transition: opacity 0.3s ease, transform 0.3s ease;
