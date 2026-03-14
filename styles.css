@@ -281,7 +281,7 @@ a:hover {
 .footer-columns {
     display: flex;
     justify-content: space-between;
-    gap: 60px; /* 列间距 */
+    gap: 40px; /* 减小列间距以适应三列 */
     flex-wrap: wrap;
     margin-bottom: 20px;
 }
@@ -339,6 +339,14 @@ a:hover {
 .footer-list a:hover {
     color: var(--text-primary);
     text-decoration: underline;
+}
+
+.footer-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: justify;
+    margin: 0;
 }
 
 .footer-divider {
