@@ -1,59 +1,488 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <!-- 基础配置：让页面适配所有设备，符合官网规范 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>上海灯野科技有限公司 - 官方网站</title>
-    <meta name="description" content="上海灯野科技有限公司，专注于科技产品研发与服务">
-    <meta name="keywords" content="上海灯野科技,灯野科技,科技服务">
-    <!-- 简单样式：保证页面整洁易读 -->
+    <title>灯野</title>
     <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: "Microsoft Yahei", Arial, sans-serif;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #FFFFFF;
+            color: #1D1D1F;
             line-height: 1.8;
-        }
-        h1 {
-            color: #222;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
-        .company-info {
             font-size: 16px;
-            margin-top: 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
         }
+
+        /* 顶部导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(232, 232, 237, 0.8);
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #1D1D1F;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-size: 16px;
+            font-weight: 400;
+            color: #1D1D1F;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #0071E3;
+        }
+
+        .nav-link.active {
+            color: #0071E3;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #0071E3;
+        }
+
+        /* 首屏 Banner 区 */
+        .hero-section {
+            background-color: #0071E3;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 60px;
+            max-width: 600px;
+        }
+
+        .iphone-mockup {
+            width: 320px;
+            height: 640px;
+            background-color: #FFFFFF;
+            border-radius: 40px;
+            padding: 20px;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .iphone-screen {
+            width: 100%;
+            height: 100%;
+            background-color: #F5F5F7;
+            border-radius: 30px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 企业信息区 */
+        .info-section {
+            max-width: 980px;
+            margin: 100px auto;
+            padding: 0 20px;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #1D1D1F;
+            letter-spacing: -0.5px;
+        }
+
+        .info-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E8E8ED;
+            border-radius: 12px;
+            padding: 60px;
+            margin-bottom: 40px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
         .info-item {
-            margin: 10px 0;
+            display: flex;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #E8E8ED;
         }
-        .label {
-            font-weight: bold;
-            color: #555;
+
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-label {
+            flex: 0 0 220px;
+            font-weight: 500;
+            color: #1D1D1F;
+            font-size: 18px;
+        }
+
+        .info-value {
+            flex: 1;
+            color: #1D1D1F;
+            font-size: 18px;
+        }
+
+        /* 联系我们区 */
+        .contact-section {
+            max-width: 980px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .contact-card {
+            background-color: #F5F5F7;
+            border-radius: 12px;
+            padding: 60px;
+            margin-bottom: 100px;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(232, 232, 237, 0.5);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-label {
+            flex: 0 0 220px;
+            font-weight: 500;
+            color: #1D1D1F;
+            font-size: 18px;
+        }
+
+        .contact-value {
+            flex: 1;
+            color: #1D1D1F;
+            font-size: 18px;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #FFFFFF;
+            border-top: 1px solid #E8E8ED;
+            color: #86868B;
+            font-size: 14px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+            }
+            
+            .nav-menu {
+                gap: 20px;
+            }
+            
+            .company-name {
+                font-size: 16px;
+            }
+            
+            .nav-link {
+                font-size: 14px;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .info-card,
+            .contact-card {
+                padding: 40px 20px;
+            }
+            
+            .info-item,
+            .contact-item {
+                flex-direction: column;
+            }
+            
+            .info-label,
+            .contact-label {
+                margin-bottom: 8px;
+                flex: none;
+            }
+            
+            .iphone-mockup {
+                width: 280px;
+                height: 560px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 20px;
+                gap: 10px;
+            }
+            
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .info-section {
+                scroll-margin-top: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .company-name {
+                font-size: 16px;
+            }
+            
+            .nav-link {
+                font-size: 13px;
+            }
+            
+            .info-label,
+            .contact-label,
+            .info-value,
+            .contact-value {
+                font-size: 16px;
+            }
+            
+            .iphone-mockup {
+                width: 240px;
+                height: 480px;
+                border-radius: 30px;
+            }
+            
+            .nav-menu {
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 核心企业信息：邓白氏审核重点看这些 -->
-    <h1>上海灯野科技有限公司</h1>
-    <div class="company-info">
-        <div class="info-item">
-            <span class="label">公司地址：</span>上海市闵行区庙泾路66号（集中登记地）
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="company-name">上海灯野科技有限公司</div>
+        <div class="nav-menu">
+            <a href="#home" class="nav-link active" id="home-link">首页</a>
+            <a href="#company-info" class="nav-link" id="info-link">企业信息</a>
         </div>
-        <div class="info-item">
-            <span class="label">法定代表人：</span>师琳
+    </nav>
+
+    <!-- 首屏 Banner 区 -->
+    <section class="hero-section" id="home">
+        <h1 class="hero-title">朕的钱，由灯野科技为您提供</h1>
+        <p class="hero-subtitle">朕的钱 · 不一样的记账工具</p>
+        <div class="iphone-mockup">
+            <div class="iphone-screen">
+                <img src="product.png" alt="记账APP产品图" class="product-image">
+            </div>
         </div>
-        <div class="info-item">
-            <span class="label">联系电话：</span>+86 你的法人手机号（替换成真实号码）
+    </section>
+
+    <!-- 企业信息区 -->
+    <section class="info-section" id="company-info">
+        <h2 class="section-title">企业基本信息</h2>
+        <div class="info-card">
+            <ul class="info-list">
+                <li class="info-item">
+                    <span class="info-label">企业全称：</span>
+                    <span class="info-value">上海灯野科技有限公司</span>
+                </li>
+                <li class="info-item">
+                    <span class="info-label">统一社会信用代码：</span>
+                    <span class="info-value">91310112MAK8RQ62X</span>
+                </li>
+                <li class="info-item">
+                    <span class="info-label">注册地址：</span>
+                    <span class="info-value">【上海市闵行区庙泾路66号（集中登记地）】</span>
+                </li>
+                <li class="info-item">
+                    <span class="info-label">成立时间：</span>
+                    <span class="info-value">2026年03月06日</span>
+                </li>
+                <li class="info-item">
+                    <span class="info-label">经营范围：</span>
+                    <span class="info-value">一般项目：技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广；科技中介服务；软件开发；网络与信息安全软件开发；人工智能基础软件开发；人工智能理论与算法软件开发；人工智能应用软件开发；数字文化创意软件开发；物联网技术研发；网络技术服务；数据处理服务；物联网应用服务；物联网技术服务；计算机软硬件及辅助设备批发；互联网销售（除销售需要许可的商品）；网络设备销售；电子产品销售；物联网设备销售；人工智能硬件销售；智能机器人销售；可穿戴智能设备销售；智能家庭消费设备销售；日用百货销售；宠物食品及用品批发；宠物食品及用品零售；机械设备租赁；广告制作；数字广告制作；广告发布；劳务服务（不含劳务派遣）。（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）</span>
+                </li>
+            </ul>
         </div>
-        <div class="info-item">
-            <span class="label">企业邮箱：</span>shilin@dengye.online（替换成你的阿里云企业邮箱）
+    </section>
+
+    <!-- 联系方式区 -->
+    <section class="contact-section">
+        <h2 class="section-title">联系我们</h2>
+        <div class="contact-card">
+            <ul class="info-list">
+                <li class="contact-item">
+                    <span class="contact-label">企业邮箱：</span>
+                    <span class="contact-value">contact@lightwild.online</span>
+                </li>
+                <li class="contact-item">
+                    <span class="contact-label">联系电话：</span>
+                    <span class="contact-value">18503059215</span>
+                </li>
+                <li class="contact-item">
+                    <span class="contact-label">官方域名：</span>
+                    <span class="contact-value">lightwild.online</span>
+                </li>
+            </ul>
         </div>
-        <div class="info-item">
-            <span class="label">经营范围：</span>技术开发、技术咨询、技术服务（简单填写即可）
-        </div>
-    </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>© 2026 上海灯野科技有限公司 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取导航链接
+            const homeLink = document.getElementById('home-link');
+            const infoLink = document.getElementById('info-link');
+            
+            // 获取页面区域
+            const homeSection = document.getElementById('home');
+            const infoSection = document.getElementById('company-info');
+            
+            // 导航链接点击事件
+            function setActiveLink(activeLink) {
+                // 移除所有链接的active类
+                homeLink.classList.remove('active');
+                infoLink.classList.remove('active');
+                
+                // 给当前点击的链接添加active类
+                activeLink.classList.add('active');
+            }
+            
+            // 首页链接点击事件
+            homeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveLink(this);
+                // 平滑滚动到首页区域
+                homeSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // 企业信息链接点击事件
+            infoLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveLink(this);
+                // 平滑滚动到企业信息区域
+                infoSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // 监听滚动事件，更新导航激活状态
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                const homeSectionTop = homeSection.offsetTop;
+                const infoSectionTop = infoSection.offsetTop;
+                const windowHeight = window.innerHeight;
+                
+                // 计算各区域的可见位置
+                if (scrollPosition < infoSectionTop - 100) {
+                    // 在首页区域
+                    setActiveLink(homeLink);
+                } else {
+                    // 在企业信息区域
+                    setActiveLink(infoLink);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
