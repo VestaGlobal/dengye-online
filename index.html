@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>灯野</title>
+    <title>上海灯野科技有限公司 - 朕的钱 记账工具</title>
     <style>
-        /* 基础样式重置 */
+        /* 基础样式重置 - 更严格的极简风格 */
         * {
             margin: 0;
             padding: 0;
@@ -16,44 +16,43 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
             background-color: #FFFFFF;
             color: #1D1D1F;
-            line-height: 1.8;
-            font-size: 16px;
+            line-height: 1.6; /* 调整行高更贴合苹果风格 */
+            font-size: 17px; /* 苹果官网默认字号 */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             scroll-behavior: smooth;
         }
 
-        /* 顶部导航栏 */
+        /* 顶部导航栏 - 更极简，去掉模糊背景，强化苹果原生质感 */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: saturate(180%) blur(20px);
-            height: 60px;
+            background-color: #FFFFFF;
+            height: 44px; /* 苹果官网导航栏高度 */
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 40px;
+            padding: 0 24px; /* 更紧凑的内边距 */
             z-index: 1000;
-            border-bottom: 1px solid rgba(232, 232, 237, 0.8);
+            border-bottom: 1px solid #E8E8ED;
         }
 
         .company-name {
-            font-size: 18px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            font-size: 16px;
+            font-weight: 400; /* 苹果官网导航文字非加粗 */
             color: #1D1D1F;
+            letter-spacing: 0.2px;
         }
 
         .nav-menu {
             display: flex;
-            gap: 30px;
+            gap: 28px; /* 更舒适的间距 */
         }
 
         .nav-link {
-            font-size: 16px;
+            font-size: 14px; /* 苹果导航栏小字 */
             font-weight: 400;
             color: #1D1D1F;
             text-decoration: none;
@@ -81,7 +80,7 @@
             background-color: #0071E3;
         }
 
-        /* 首屏 Banner 区 */
+        /* 首屏 Banner 区 - 优化间距，更贴合苹果官网比例 */
         .hero-section {
             background-color: #0071E3;
             min-height: 100vh;
@@ -90,47 +89,44 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 20px 60px;
+            padding: 88px 24px 64px; /* 适配导航栏高度，更紧凑 */
             position: relative;
         }
 
         .hero-title {
-            font-size: 56px;
-            font-weight: 700;
+            font-size: 48px; /* 苹果官网首屏标题字号 */
+            font-weight: 600; /* 苹果非粗体，而是半粗体 */
             color: #FFFFFF;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
         }
 
         .hero-subtitle {
-            font-size: 20px;
+            font-size: 21px; /* 苹果官网副标题字号 */
             font-weight: 400;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 60px;
+            color: rgba(255, 255, 255, 0.9); /* 更亮的文字，提升可读性 */
+            margin-bottom: 48px;
             max-width: 600px;
         }
 
+        /* iPhone 样机 - 更真实的苹果风格，去掉阴影，强化极简 */
         .iphone-mockup {
-            width: 320px;
-            height: 640px;
+            width: 340px;
+            height: 680px;
             background-color: #FFFFFF;
-            border-radius: 40px;
-            padding: 20px;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+            border-radius: 48px; /* 更接近真实iPhone圆角 */
+            padding: 12px; /* 更窄的边框 */
             overflow: hidden;
-            margin-top: 40px;
+            margin-top: 24px;
         }
 
         .iphone-screen {
             width: 100%;
             height: 100%;
             background-color: #F5F5F7;
-            border-radius: 30px;
+            border-radius: 36px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .product-image {
@@ -139,29 +135,29 @@
             object-fit: cover;
         }
 
-        /* 企业信息区 */
+        /* 企业信息区 - 优化间距和卡片样式，更正规 */
         .info-section {
             max-width: 980px;
-            margin: 100px auto;
-            padding: 0 20px;
-            scroll-margin-top: 80px;
+            margin: 80px auto; /* 减少上下间距，更紧凑 */
+            padding: 0 24px;
+            scroll-margin-top: 64px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 60px;
+            font-size: 32px; /* 苹果二级标题字号 */
+            font-weight: 600;
+            margin-bottom: 48px;
             color: #1D1D1F;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.2px;
         }
 
         .info-card {
             background-color: #FFFFFF;
             border: 1px solid #E8E8ED;
-            border-radius: 12px;
-            padding: 60px;
-            margin-bottom: 40px;
+            border-radius: 8px; /* 更小的圆角，更商务 */
+            padding: 48px;
+            margin-bottom: 48px;
         }
 
         .info-list {
@@ -170,8 +166,8 @@
 
         .info-item {
             display: flex;
-            margin-bottom: 30px;
-            padding-bottom: 30px;
+            margin-bottom: 24px; /* 减少间距，更紧凑 */
+            padding-bottom: 24px;
             border-bottom: 1px solid #E8E8ED;
         }
 
@@ -182,37 +178,40 @@
         }
 
         .info-label {
-            flex: 0 0 220px;
+            flex: 0 0 200px; /* 减少标签宽度，更协调 */
             font-weight: 500;
             color: #1D1D1F;
-            font-size: 18px;
+            font-size: 17px;
         }
 
         .info-value {
             flex: 1;
             color: #1D1D1F;
-            font-size: 18px;
+            font-size: 17px;
+            /* 经营范围换行优化 */
+            white-space: pre-line;
+            word-break: break-all;
         }
 
-        /* 联系我们区 */
+        /* 联系我们区 - 统一样式，更正规 */
         .contact-section {
             max-width: 980px;
-            margin: 100px auto;
-            padding: 0 20px;
+            margin: 80px auto;
+            padding: 0 24px;
         }
 
         .contact-card {
-            background-color: #F5F5F7;
-            border-radius: 12px;
-            padding: 60px;
-            margin-bottom: 100px;
+            background-color: #F5F5F7; /* 苹果浅灰背景 */
+            border-radius: 8px;
+            padding: 48px;
+            margin-bottom: 80px;
         }
 
         .contact-item {
             display: flex;
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(232, 232, 237, 0.5);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(232, 232, 237, 0.8); /* 更清晰的分割线 */
         }
 
         .contact-item:last-child {
@@ -222,32 +221,34 @@
         }
 
         .contact-label {
-            flex: 0 0 220px;
+            flex: 0 0 200px;
             font-weight: 500;
             color: #1D1D1F;
-            font-size: 18px;
+            font-size: 17px;
         }
 
         .contact-value {
             flex: 1;
             color: #1D1D1F;
-            font-size: 18px;
+            font-size: 17px;
         }
 
-        /* 页脚 */
+        /* 页脚 - 更极简，贴合苹果官网 */
         .footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 32px 24px;
             background-color: #FFFFFF;
             border-top: 1px solid #E8E8ED;
             color: #86868B;
-            font-size: 14px;
+            font-size: 12px; /* 苹果页脚小字 */
+            letter-spacing: 0.1px;
         }
 
-        /* 响应式设计 */
+        /* 响应式设计 - 更精准的适配 */
         @media (max-width: 768px) {
             .navbar {
-                padding: 0 20px;
+                padding: 0 16px;
+                height: 48px; /* 移动端导航栏稍高 */
             }
             
             .nav-menu {
@@ -255,28 +256,28 @@
             }
             
             .company-name {
-                font-size: 16px;
+                font-size: 15px;
             }
             
             .nav-link {
-                font-size: 14px;
+                font-size: 13px;
             }
             
             .hero-title {
-                font-size: 40px;
+                font-size: 36px;
             }
             
             .hero-subtitle {
-                font-size: 18px;
+                font-size: 19px;
             }
             
             .section-title {
-                font-size: 36px;
+                font-size: 28px;
             }
             
             .info-card,
             .contact-card {
-                padding: 40px 20px;
+                padding: 32px 16px;
             }
             
             .info-item,
@@ -288,6 +289,7 @@
             .contact-label {
                 margin-bottom: 8px;
                 flex: none;
+                color: #86868B; /* 移动端标签变浅，区分层级 */
             }
             
             .iphone-mockup {
@@ -298,19 +300,18 @@
 
         @media (max-width: 600px) {
             .navbar {
-                flex-direction: column;
-                height: auto;
-                padding: 15px 20px;
-                gap: 10px;
+                flex-direction: row; /* 保留横向布局，更贴合移动端体验 */
+                height: 48px;
+                padding: 0 16px;
             }
             
             .nav-menu {
-                width: 100%;
-                justify-content: center;
+                width: auto;
+                justify-content: flex-end;
             }
             
             .info-section {
-                scroll-margin-top: 120px;
+                scroll-margin-top: 64px;
             }
         }
 
@@ -320,19 +321,20 @@
             }
             
             .hero-subtitle {
-                font-size: 16px;
+                font-size: 17px;
             }
             
             .section-title {
-                font-size: 28px;
+                font-size: 24px;
             }
             
             .company-name {
-                font-size: 16px;
+                font-size: 14px;
+                white-space: nowrap; /* 防止公司名换行 */
             }
             
             .nav-link {
-                font-size: 13px;
+                font-size: 12px;
             }
             
             .info-label,
@@ -345,11 +347,10 @@
             .iphone-mockup {
                 width: 240px;
                 height: 480px;
-                
             }
             
             .nav-menu {
-                gap: 15px;
+                gap: 12px;
             }
         }
     </style>
@@ -361,13 +362,14 @@
         <div class="nav-menu">
             <a href="#home" class="nav-link active" id="home-link">首页</a>
             <a href="#company-info" class="nav-link" id="info-link">企业信息</a>
+            <a href="#contact" class="nav-link" id="contact-link">联系我们</a> <!-- 新增联系我们导航 -->
         </div>
     </nav>
 
     <!-- 首屏 Banner 区 -->
     <section class="hero-section" id="home">
-        <h1 class="hero-title">朕的钱，由灯野科技为您提供</h1>
-        <p class="hero-subtitle">朕的钱 · 不一样的记账工具</p>
+        <h1 class="hero-title">朕的钱，不一样的记账工具</h1>
+        <p class="hero-subtitle">由上海灯野科技有限公司倾力打造</p>
         <div class="iphone-mockup">
             <div class="iphone-screen">
                 <img src="https://github.com/LightWild/LightWildTech/blob/main/images/test01.png?raw=true" alt="记账APP产品图" class="product-image">
@@ -405,7 +407,7 @@
     </section>
 
     <!-- 联系方式区 -->
-    <section class="contact-section">
+    <section class="contact-section" id="contact">
         <h2 class="section-title">联系我们</h2>
         <div class="contact-card">
             <ul class="info-list">
@@ -435,51 +437,53 @@
             // 获取导航链接
             const homeLink = document.getElementById('home-link');
             const infoLink = document.getElementById('info-link');
+            const contactLink = document.getElementById('contact-link'); // 新增联系我们链接
             
             // 获取页面区域
             const homeSection = document.getElementById('home');
             const infoSection = document.getElementById('company-info');
+            const contactSection = document.getElementById('contact'); // 新增联系我们区域
             
-            // 导航链接点击事件
+            // 导航链接激活逻辑
             function setActiveLink(activeLink) {
-                // 移除所有链接的active类
                 homeLink.classList.remove('active');
                 infoLink.classList.remove('active');
-                
-                // 给当前点击的链接添加active类
+                contactLink.classList.remove('active'); // 新增
                 activeLink.classList.add('active');
             }
             
-            // 首页链接点击事件
+            // 导航点击事件
             homeLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 setActiveLink(this);
-                // 平滑滚动到首页区域
                 homeSection.scrollIntoView({ behavior: 'smooth' });
             });
             
-            // 企业信息链接点击事件
             infoLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 setActiveLink(this);
-                // 平滑滚动到企业信息区域
                 infoSection.scrollIntoView({ behavior: 'smooth' });
             });
             
-            // 监听滚动事件，更新导航激活状态
+            // 新增联系我们点击事件
+            contactLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveLink(this);
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // 滚动监听 - 更精准的激活逻辑
             window.addEventListener('scroll', function() {
-                const scrollPosition = window.scrollY;
-                const homeSectionTop = homeSection.offsetTop;
-                const infoSectionTop = infoSection.offsetTop;
-                const windowHeight = window.innerHeight;
+                const scrollPosition = window.scrollY + 100; // 偏移量，提升体验
+                const infoTop = infoSection.offsetTop;
+                const contactTop = contactSection.offsetTop;
                 
-                // 计算各区域的可见位置
-                if (scrollPosition < infoSectionTop - 100) {
-                    // 在首页区域
+                if (scrollPosition < infoTop) {
                     setActiveLink(homeLink);
-                } else {
-                    // 在企业信息区域
+                } else if (scrollPosition < contactTop) {
                     setActiveLink(infoLink);
+                } else {
+                    setActiveLink(contactLink); // 新增
                 }
             });
         });
